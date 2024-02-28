@@ -1,9 +1,7 @@
-import java.io.FileNotFoundException;
-
 public class Test{
     public static void main(String[] args) {
         int valoreTotMagazzino = readFile();
-        System.out.println("il valore totale del tuo magazino è di " + valoreTotMagazzino + "€");
+        System.out.println("il valore totale del tuo magazzino è di " + valoreTotMagazzino + "€");
     }
 
     public static int getValoreTotaleRiga(String[] row){
@@ -12,16 +10,15 @@ public class Test{
 
     protected static int readFile() {
         try{
-            System.out.println("inserisci il nome del file sorgente\t(la cartella in cui salvarlo è già inserite e la parte finale del nome \"_Personaggi.csv\" pure)");
-            return getValoreTotaleMagazzino("csv\\file_dati\\" + new java.util.Scanner(System.in).nextLine() + "_Personaggi.csv");
+            System.out.println("inserisci il nome del file sorgente");
+            return getValoreTotaleMagazzino(new java.util.Scanner(System.in).nextLine());
         }catch (java.io.FileNotFoundException e){
             System.out.println("questo file non esiste");
-        }finally {
-            readFile();
         }
+        readFile();
         return -1;
     }
-    public static int getValoreTotaleMagazzino(String file) throws FileNotFoundException {
+    public static int getValoreTotaleMagazzino(String file) throws java.io.FileNotFoundException {
         java.io.BufferedReader reader = null;
         int valoreTotMagazzino = 0;
         try {
